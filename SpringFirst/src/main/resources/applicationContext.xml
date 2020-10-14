@@ -20,7 +20,8 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="org.example.MusicPlayer">
+          class="org.example.MusicPlayer"
+          scope="prototype">
 <!--        <constructor-arg ref="musicBean"/>  Внедрение через конструктор -->
         <property name="music" ref="musicBean1"/>
 <!--        Внедрение зависимости через сеттер, значение передаётся из пропертиес-->
