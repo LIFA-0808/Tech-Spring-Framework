@@ -8,37 +8,31 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
-    
-    <bean id="musicBean1"
-          class="org.example.RockMusic">
-    </bean>
-    <bean id="musicBean2"
-          class="org.example.PopMusic">
-    </bean>
-    <bean id="musicBean3"
-          class="org.example.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          factory-method="getClassicalMusic">
-    </bean>
 
-    <bean id="musicPlayer"
-          class="org.example.MusicPlayer"
-          scope="prototype">
-<!--        <constructor-arg ref="musicBean"/>  Внедрение через конструктор -->
-        <property name="music" ref="musicBean3"/>
-<!--        Внедрение зависимости через сеттер, значение передаётся из пропертиес-->
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
-    
+    <context:component-scan base-package="org.example"/>
+
+<!--    <bean id="musicBean1"-->
+<!--          class="org.example.RockMusic">-->
+<!--    </bean>-->
+<!--    <bean id="musicBean2"-->
+<!--          class="org.example.PopMusic">-->
+<!--    </bean>-->
+<!--    <bean id="musicBean3"-->
+<!--          class="org.example.ClassicalMusic"-->
+<!--          init-method="doMyInit"-->
+<!--          destroy-method="doMyDestroy"-->
+<!--          factory-method="getClassicalMusic">-->
+<!--    </bean>-->
+
+
+
     <bean id="musicPlayerList"
           class="org.example.MusicPlayer">
         <property name="musicList">
             <list value-type="org.example.Music">
-                <ref bean="musicBean1"/>
-                <ref bean="musicBean2"/>
-                <ref bean="musicBean3"/>
+                <ref bean="rockMusic"/>
+                <ref bean="popMusic"/>
+                <ref bean="classicalMusic"/>
             </list>
         </property>
     </bean>
