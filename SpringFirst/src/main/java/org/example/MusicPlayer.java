@@ -20,7 +20,8 @@ public class MusicPlayer {
     public int getVolume() { return volume; }
 
     @Autowired
-    public MusicPlayer(@Qualifier("rockMusic") Music music1, @Qualifier("popMusic") Music music2, @Qualifier("classicalMusic") Music music3) {
+    public MusicPlayer(@Qualifier("rockMusic") Music music1, @Qualifier("popMusic") Music music2,
+                       @Qualifier("classicalMusic") Music music3) {
         this.music1 = music1;
         this.music2 = music2;
         this.music3 = music3;
