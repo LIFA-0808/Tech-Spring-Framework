@@ -2,13 +2,15 @@ package org.example;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 @Component
 public class ClassicalMusic implements Music{
-    private ClassicalMusic () {}
+    private static final List<String> classicalList = Arrays.asList("Hungarian Rhapsody",
+            "Handel in the Strand", "Walking in the Air");
 
-    public static ClassicalMusic getClassicalMusic () {
-        return new ClassicalMusic();
-    }
 
     public void doMyInit () {
         System.out.println("Doing my Initialization");
@@ -20,6 +22,9 @@ public class ClassicalMusic implements Music{
 
     @Override
     public String getSong() {
-        return "Hungarian Rhapsody";
+        Random random = new Random();
+        int randomIndex = random.nextInt(classicalList.size());
+
+        return classicalList.get(randomIndex);
     }
 }

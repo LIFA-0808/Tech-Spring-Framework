@@ -26,15 +26,15 @@
 
 
 
-    <bean id="musicPlayerList"
-          class="org.example.MusicPlayer">
-        <property name="musicList">
-            <list value-type="org.example.Music">
-                <ref bean="rockMusic"/>
-                <ref bean="popMusic"/>
-                <ref bean="classicalMusic"/>
-            </list>
-        </property>
-    </bean>
+<!--    <bean id="musicPlayerList"-->
+<!--          class="org.example.MusicPlayer">-->
+<!--        <property name="musicList">-->
+<!--            <list value-type="org.example.Music">-->
+<!--                <ref bean="rockMusic"/>-->
+<!--                <ref bean="popMusic"/>-->
+<!--                <ref bean="classicalMusic"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
 
 </beans>
